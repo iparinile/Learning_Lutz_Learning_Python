@@ -14,16 +14,14 @@ for line in open('data.txt'):
     print(line)
 
 import struct
-packed = struct.pack('>i4sh', 7, b'spam', 8)  # Создание упакованных двоичных данных
-print(packed)  # b'\x00\x00\x00\x07spam\x00\x08'
+packed = struct.pack('>i4sh', 7, b'spam', 9)  # Создание упакованных двоичных данных
+print(packed)  # b'\x00\x00\x00\x07spam\x00\t'
 file = open('data.bin', 'wb')
 file.write(packed)
 file.close()
 
 data = open('data.bin', 'rb').read()
-print(data)  # b'\x00\x00\x00\x07spam\x00\x08'
+print(data)  # b'\x00\x00\x00\x07spam\x00\t'
 print(data[4:8])  # b'spam'
-print(list(data))  # [0, 0, 0, 7, 115, 112, 97, 109, 0, 8]
-print(struct.unpack('>i4sh', data))  # (7, b'spam', 8)
-
-
+print(list(data))  # [0, 0, 0, 7, 115, 112, 97, 109, 0, 9]
+print(struct.unpack('>i4sh', data))  # (7, b'spam', 9)
