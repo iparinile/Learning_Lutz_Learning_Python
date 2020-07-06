@@ -46,5 +46,5 @@ print((managers | engineers) > managers)  # Все сотрудники - над
 # True
 print(managers ^ engineers)  # Кто находится в одной категории, но не в обеих?
 # {'ann', 'bob', 'tom', 'vic'}
-print((managers | engineers) - (managers ^ engineers)) # Пересечение!
+print((managers | engineers) - (managers ^ engineers))  # Пересечение!
 # {'sue'}
